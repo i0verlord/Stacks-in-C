@@ -1,0 +1,77 @@
+#include<stdio.h>
+#include<stdlib.h>
+#define MAX 5
+
+int top=-1, stack[MAX];
+void push();
+void pop();
+void display();
+
+void main()
+{
+    int ch;
+    while (1)
+    {
+        printf("\nOperations performed by Stack: ");
+        printf("\n1. Push the element \n2. Pop the element \n3. Display the Stack \n4. Exit");
+        printf("\nEnter the Choice: ");
+        scanf("%d", &ch);
+
+        switch(ch)
+        {
+        case 1: push();
+            break;
+        case 2: pop();
+            break;
+        case 3: display();
+            break;
+        case 4: exit(0);
+        default: printf("\n Wrong Option!!");
+            break;
+        }
+    }
+}
+
+void push()
+{
+    int val;
+    if(top==MAX-1)
+    {
+        printf("Stack is Full!!\n");
+    }
+    else
+    {
+        printf("Enter the element to insert: ");
+        scanf("%d", &val);
+        top+=1;
+        stack[top]=val;
+    }
+}
+
+void pop()
+{
+    if(top==-1)
+    {
+        printf("Stack is Empty!!\n");
+    }
+    else
+    {
+        top-=1;
+    }
+}
+
+void display()
+{
+   if(top==-1)
+   {
+        printf("Stack is empty");
+   }
+   else
+   {
+        printf("\n Elements present in the stack: \n");
+        for (int i = top; i >= 0; i--)
+        {
+            printf("%d \n", stack[i]);
+        }
+   }
+}
